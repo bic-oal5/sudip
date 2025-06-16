@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sudip Poudel - About Me</title>
+  <title>Poudel Sudip - About Me</title>
   <style>
     body {
       background-color: black;
       color: white;
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0 0 0 70px;
-      min-height: 100vh;
-      transition: background-color 0.5s ease;
+      padding-left: 70px;
+      transition: background-color 0.4s ease;
     }
 
     .pic {
@@ -32,7 +31,6 @@
     h1 {
       color: rgb(26, 226, 26);
       font-size: 20px;
-      margin: 10px 0;
     }
 
     h2 {
@@ -40,11 +38,7 @@
     }
 
     .para {
-      padding-left: 70px;
-      line-height: 1.8;
-    }
-
-    p {
+      padding-left: 0;
       line-height: 1.8;
     }
 
@@ -61,8 +55,8 @@
       background-color: rgb(26, 46, 222);
       border: none;
       color: black;
-      margin: 10px auto;
-      display: block;
+      margin: 10px 5px;
+      display: inline-block;
       height: 40px;
       width: 200px;
       cursor: pointer;
@@ -85,8 +79,8 @@
     }
   </style>
 </head>
-<body>
 
+<body>
   <div class="pic">
     <img src="pop.jpg" alt="Profile picture" class="center" />
     <div class="head">
@@ -96,7 +90,7 @@
   </div>
 
   <div class="para">
-    <h1 class="int">About Me</h1>
+    <h1>About Me</h1>
     <div id="typewriter"></div>
 
     <h1>Skills</h1>
@@ -129,34 +123,37 @@
   </div>
 
   <script>
-    // Typing effect
-    const text = "I'm Poudel Sudip. An IT Management student passionate about technology.\nI aim to grow my skills and build a strong career in the IT industry.";
-    let i = 0;
+    // Typing Effect
+    const typeText = "I'm Poudel Sudip. An IT Management student passionate about technology. I aim to grow my skills and build a strong career in the IT industry.";
+    let index = 0;
+
     function typeWriter() {
-      if (i < text.length) {
-        document.getElementById("typewriter").innerHTML += text.charAt(i);
-        i++;
+      if (index < typeText.length) {
+        document.getElementById("typewriter").innerHTML += typeText.charAt(index);
+        index++;
         setTimeout(typeWriter, 40);
       }
     }
-    typeWriter();
 
-    // Email button
+    window.onload = typeWriter;
+
+    // Email Button
     function sendEmail() {
       window.location.href = "mailto:olbic69@gmail.com";
     }
 
-    // Change background color button
+    // Change Background Button
     function changeBackground() {
-      const colors = ["black", "#1e1e2f", "#2f1e1e", "#1e2f1e", "#2f2f1e"];
-      let current = document.body.style.backgroundColor;
+      const colors = ["black", "#1a1a2e", "#2e1a1a", "#1a2e1a", "#2e2e1a"];
+      const currentColor = document.body.style.backgroundColor;
       let newColor = colors[Math.floor(Math.random() * colors.length)];
-      while (newColor === current) {
+
+      while (newColor === currentColor) {
         newColor = colors[Math.floor(Math.random() * colors.length)];
       }
+
       document.body.style.backgroundColor = newColor;
     }
   </script>
-
 </body>
 </html>
